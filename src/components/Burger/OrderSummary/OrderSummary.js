@@ -1,33 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Frag from '../../../hoc/Frag';
 import Button from '../../UI/Button/Button';
 
-const orderSummary = (props) => {
+class OrderSummary extends Component {
 
-  const ingredientSummary = Object.keys(props.ingredients)
-    .map((igKey => {
-      return (
-        <li key={igKey}>
-          <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.ingredients[igKey]}
-        </li>);
-    }));
+  componentWillUpdate(nextProps, nextState, nextContext) {
+    console.log('[OrderSummary] WillUpdate');
+  }
 
-  return (
+  render() {
 
+    const ingredientSummary = Object.keys(this.props.ingredients)
+      .map((igKey => {
+        return (
+          <li key={igKey}>
+            <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {this.props.ingredients[igKey]}
+          </li>);
+      }));
 
-    <Frag>
-      <h3>Your Order</h3>
-      <p>A delicious burger with the following ingredients:</p>
-      <ul>
-        {ingredientSummary}
-      </ul>
-      <p><strong>Total price: {props.price.toFixed(2)}</strong></p>
-      <p>Continue to Checkout?</p>
-      <Button btnType="Danger" clicked={props.purchaseCancel}>CANCEL</Button>
-      <Button btnType="Success" clicked={props.purchaseContinue}>CONTINUE</Button>
-    </Frag>
+    return (
+      <Frag>
+        <h3>Your Order</h3>
+        <p>A delicious burger with the following ingredients:</p>
+        <ul>
+          {ingredientSummary}
+        </ul>
+        <p><strong>Total price: {this.props.price.toFixed(2)}</strong></p>
+        <p>Continue to Checkout?</p>
+        <Button btnType="Danger" clicked={this.props.purchaseCancel}>CANCEL</Button>
+        <Button btnType="Success" clicked={this.props.purchaseContinue}>CONTINUE</Button>
+      </Frag>
+    );
+  }
+}
 
-  );
-};
-
-export default orderSummary;
+export default OrderSummary;
