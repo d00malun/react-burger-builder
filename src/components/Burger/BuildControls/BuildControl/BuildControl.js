@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './BuildControl.module.css';
+import PropTypes from 'prop-types';
 
 const buildControl = (props) => {
   return (
@@ -14,6 +15,13 @@ const buildControl = (props) => {
         onClick={props.added}>More</button>
     </div>
   );
+};
+
+buildControl.propTypes = {
+  label: PropTypes.string.isRequired,
+  removed: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
+  added: PropTypes.func.isRequired
 };
 
 export default buildControl;

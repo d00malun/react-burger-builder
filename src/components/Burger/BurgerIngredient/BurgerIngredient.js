@@ -3,7 +3,7 @@ import classes from './BurgerIngredient.module.css';
 import PropTypes from 'prop-types';
 
 const burgerIngredient = (props) => {
-  let ingredient = null;
+  let ingredient;
 
   switch (props.type) {
     case('bread-bottom'):

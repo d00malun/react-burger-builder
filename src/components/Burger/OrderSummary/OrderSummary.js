@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Frag from '../../../hoc/Frag/Frag';
 import Button from '../../UI/Button/Button';
+import PropTypes from 'prop-types';
 
 class OrderSummary extends Component {
 
@@ -33,5 +34,12 @@ class OrderSummary extends Component {
     );
   }
 }
+
+OrderSummary.propTypes = {
+  ingredients: PropTypes.object.isRequired,
+  price: PropTypes.number.isRequired,
+  purchaseCancel: PropTypes.func.isRequired,
+  purchaseContinue: PropTypes.func.isRequired
+};
 
 export default OrderSummary;

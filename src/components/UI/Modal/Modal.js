@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import classes from './Modal.module.css';
 import Frag from '../../../hoc/Frag/Frag';
 import Backdrop from '../Backdrop/Backdrop';
+import PropTypes from 'prop-types';
 
 class Modal extends Component{
 
@@ -30,5 +31,10 @@ class Modal extends Component{
   }
 
 }
+
+Modal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  modalClosed: PropTypes.func.isRequired
+};
 
 export default Modal;
