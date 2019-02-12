@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Frag from '../../../hoc/Frag';
+import Frag from '../../../hoc/Frag/Frag';
 import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component {
