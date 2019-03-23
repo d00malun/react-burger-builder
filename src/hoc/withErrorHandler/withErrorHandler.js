@@ -6,12 +6,13 @@ import Frag from '../Frag/Frag';
 const withErrorHandler = (WrappedComponent, axios) => {
   return class extends Component {
     state = {
-      error: null
+      error: false
     };
 
-    componentDidMount() {
+    constructor(props) {
+      super(props);
       axios.interceptors.request.use(req => {
-        this.setState({error: null});
+        this.setState({error: false});
         return req;
       });
       axios.interceptors.response.use(res => res, error => {
@@ -20,7 +21,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
     }
 
     errorConfirmHandler = () => {
-      this.setState({error: null});
+      this.setState({error: false});
     };
 
     render() {
